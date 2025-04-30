@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boodschappenlijst</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+
+<body>
+    <table id="tabel">
+        <tr> 
+          <td><strong>Product</strong></td>
+          <td><strong>Prijs</strong></td>
+          <td><strong>Aantal</strong></td>
+          <td><strong>Subtotaal</strong></td>
+        </tr>
+          <tr> 
+            <td>Brood</td>
+            <td style="text-align:right;" class="productPrice">1.00</td>
+            <td><input id="number" type="number"  class="productQuantity" value="0"></td>
+            <td style="text-align:right;" class="productTotalCost"></td>
+          </tr>
+          <tr> 
+            <td>Broccoli</td>
+            <td style="text-align:right;" class="productPrice">0.99</td>
+            <td><input id="number" type="number" class="productQuantity" value="0"></td>
+            <td style="text-align:right;" class="productTotalCost"></td>
+          </tr>
+          <tr> 
+            <td>Krentenbollen</td>
+            <td style="text-align:right;" class="productPrice">1.20</td>
+            <td><input id="number" type="number" class="productQuantity" value="0"></td>
+            <td style="text-align:right;" class="productTotalCost"></td>
+          </tr>
+          <tr> 
+            <td>Noten</td>
+            <td style="text-align:right;" class="productPrice">2.99</td>
+            <td><input id="number" type="number" class="productQuantity" value="0"></td>
+            <td style="text-align:right;" class="productTotalCost"></td>
+          </tr>
+          <tr> 
+            <td colspan="3"><strong>Totaal</strong></td>
+            <td id="totalCost" value="0"></td>
+          </tr>
+      </table>
+
+      <script src="script.js"></script>
+</body>
+</html>
