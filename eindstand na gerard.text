@@ -1,0 +1,96 @@
+GROCERYFORM
+
+<script setup>
+ import { ref } from 'vue'
+ import { addGrocery } from '../store'; 
+
+
+
+
+// hier een prop
+const props = defineProps({grocery:Object});
+
+//dit is de kopie van grocery
+const newGrocery = ref({...props.grocery});
+
+// hier een emit
+const emit = defineEmits(['submit'])
+
+const submit = () => {
+    emit('submit', newGrocery)
+}
+
+</script>
+
+<template>
+<!-- hier komt het formulier te staan -->
+<form>
+    <label>Wat: </label>
+    <input type="text" id="" v-model="newGrocery.name" name="name" placeholder="Typ hier iets...">
+    <br>
+    <label>Aantal: </label>
+    <input type="number" id="" v-model="newGrocery.amount" name="amount" placeholder="Voer getal in...">
+    <br>
+    <label>Prijs: </label>
+    <input type="number" id="" v-model="newGrocery.price" name="price" placeholder="Voer getal in...">
+    <br>
+    <input type="submit" @click.prevent="submit">
+</form>
+
+<p>{{ grocery }}</p>
+<p>{{ newGrocery }}</p>
+
+</template>
+
+
+
+
+
+
+
+CREATE
+<script setup>
+
+import { ref } from 'vue';
+import GroceryForm from '../components/GroceryForm.vue'
+import { addGrocery, getAllGroceries } from '../store';
+
+//leeg groceryitem
+const grocery = ref({name: '', price: 0, amount: 0})
+
+//functie om nieuwe grocery toe te voegen aan store (=action)
+// const addGrocery = (grocery) => groceries.value.push(grocery);
+
+// const groceries = getAllGroceries
+
+</script>
+
+<template>
+
+<pre>{{ grocery }}</pre>
+
+    <GroceryForm :grocery="grocery" @submit="addGrocery" />
+</template>
+
+
+
+OVERVIEW
+<script setup>
+
+import GroceriesTable from '../components/GroceriesTable.vue';
+// import { ref } from 'vue'
+import { getAllGroceries } from '../store';
+
+
+
+
+
+</script>
+
+<template>
+    <main>
+        <GroceriesTable v-model="getAllGroceries"/>
+    </main>
+</template>
+
+
